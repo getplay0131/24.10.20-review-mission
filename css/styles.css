@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Black+Han+Sans&display=swap");
+
+/* 
+전역 스타일 및 리셋:
+1. 마진, 패딩 초기화
+2. box-sizing 설정
+3. 기본 폰트 및 색상 설정
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+/* 
+레이아웃 컨테이너:
+1. 최대 너비 설정
+2. 중앙 정렬
+*/
+#layout {
+  /* font-family: "Black Han Sans", sans-serif; */
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Afacad Flux", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "slnt" 0;
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+/*
+헤더 스타일:
+1. 배경색 설정
+2. 로고 및 네비게이션 메뉴 배치 (flex 사용 고려)
+3. z-index 설정으로 다른 요소 위에 표시
+*/
+header {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  z-index: 1000;
+  justify-content: space-between;
+  height: 110px;
+  transition: all 0.5s ease-in-out;
+}
+
+/*
+네비게이션 메뉴 스타일:
+1. 메인 메뉴 항목 스타일 (글꼴, 색상, 간격)
+2. 서브 메뉴 스타일 (초기에 숨김, 호버 시 표시)
+3. 트랜지션 효과 추가
+*/
+.logo {
+  margin: auto 3%;
+  top: 0;
+  transform: translateY(0);
+}
+
+ul {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  position: relative;
+  height: 110px;
+}
+
+ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+}
+
+ul a {
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.main_menu {
+  font-size: 1.3rem;
+  text-wrap: nowrap;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  /* border: 1px solid #fff; */
+}
+
+.sub_menu {
+  text-align: center;
+  line-height: 230%;
+  transition: all 0.5s ease-in-out;
+  display: none;
+  text-wrap: nowrap;
+  transition: all 0.5s ease-in-out;
+  /* transform: translateY(0); */
+}
+
+.sub_menu:first-child {
+  margin-top: 15%;
+}
+
+.main_menu:hover {
+  color: #f00;
+}
+
+.sub_menu:hover {
+  color: #ffd700;
+  transform: translateX(5px);
+}
+
+.main_menu:hover header,
+.main_menu:hover .sub_menu {
+  height: 300px;
+  display: block;
+}
+/*
+슬라이드 영역 스타일:
+1. 컨테이너 크기 및 위치 설정
+2. 이미지 크기 조절 및 위치 설정
+3. 페이드 인/아웃 효과를 위한 opacity 및 transition 설정
+*/
+#slideArea {
+  margin-top: 40px;
+  width: 100%;
+  /* position: relative; */
+  height: 350px;
+  /* border: 3px solid #000; */
+  background-color: #000;
+}
+
+.slideTrack {
+  /* display: flex; */
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideTrack img {
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.slideTrack img.active {
+  opacity: 1;
+}
+
+/*
+메인 콘텐츠 영역 스타일:
+1. 섹션 간 여백 및 정렬 설정
+2. 각 섹션 제목 스타일 (글꼴, 색상, 테두리 등)
+*/
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  flex: 1;
+  margin: 40px 0px;
+  height: max-content;
+}
+
+/*
+공지사항 스타일:
+1. 목록 스타일 제거
+2. 각 항목의 레이아웃 (flex 사용 고려)
+3. 링크 호버 효과
+*/
+/* notice section 하단 */
+.notice ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* width: 100%; */
+  margin-top: 4%;
+  height: 100px;
+}
+
+.notice ol li {
+  list-style-type: none;
+  /* background-color: #000; */
+}
+
+.notice ol li a {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #000;
+  border-bottom: 1px dashed #000;
+  letter-spacing: 1px;
+}
+
+.date {
+  cursor: default;
+}
+
+.title {
+  transition: all 0.5s ease-in-out;
+  transform: translateX(0);
+}
+
+.title:hover {
+  color: #f00;
+  transform: translateX(5px);
+}
+
+.notice h3 {
+  margin: 5% 0;
+  border: #f00 solid 2px;
+  display: inline;
+  padding: 5px;
+  text-align: center;
+  color: #f00;
+}
+
+/* notice section 상단 */
+
+/*
+갤러리 스타일:
+1. 이미지 그리드 레이아웃
+2. 이미지 크기 및 간격 조정
+*/
+/* gallery section 하단 */
+.gallery h3 {
+  border: #f00 solid 2px;
+  margin: 0;
+  color: #f00;
+  padding: 3px;
+  top: -2px;
+  display: inline;
+}
+
+.gallery_imgs {
+  display: flex;
+  justify-content: space-around;
+  height: fit-content;
+  margin-top: 3%;
+}
+/* gallery section 상단 */
+
+/*
+배너 스타일:
+1. 이미지 크기 조절
+2. 호버 효과 (필요시)
+*/
+/* banner section 하단 */
+
+.banner {
+  width: 100%;
+  height: 200px;
+  margin-left: 1%;
+}
+
+.banner div {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+.banner img {
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+  margin: 6% 5px;
+}
+/* banner section 상단 */
+
+/*
+푸터 스타일:
+1. 배경색 설정
+2. 텍스트 정렬 및 간격 조정
+3. 링크 스타일
+*/
+/* footer section 하단  */
+footer {
+  background-color: #e6e6e6;
+  height: 100px;
+  padding: 30px 10px;
+  margin-top: 40px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  text-wrap: nowrap;
+}
+
+.footer-info {
+  font-size: 0.8rem;
+  flex: 0.7;
+}
+
+footer a {
+  text-decoration: none;
+  color: #000;
+}
+
+footer a:not(:first-of-type)::before {
+  content: "|  ";
+}
+.footer-select {
+  flex: 0.3;
+  text-align: end;
+}
+
+.footer-select select {
+  right: 0;
+}
+
+/* footer section 상단  */
+
+/*
+팝업 스타일:
+1. 전체 화면 덮기 (position: fixed 사용)
+2. 배경 어둡게 처리
+3. 팝업 내용 중앙 정렬
+4. 닫기 버튼 스타일
+*/
+#popup {
+  width: 100vw;
+  min-height: 100%;
+  left: 0%;
+  top: 0%;
+  position: absolute;
+  border: 3px solid #000;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 0;
+  visibility: hidden;
+}
+
+#popup.show {
+  z-index: 10000;
+  visibility: visible;
+}
+
+.popup-content {
+  height: fit-content;
+  width: max-content;
+  position: absolute;
+  background-color: #fff;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.popup-content h3 {
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  font-weight: bold;
+}
+
+.popup-content img {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.popupClose {
+  display: block;
+  /* border: 3px solid #f00; */
+  padding: 5px;
+  float: right;
+  transition: all 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+.popupClose:hover {
+  color: #fff;
+  background-color: #000;
+}
+/*
+반응형 디자인:
+1. 모바일 화면에 대한 미디어 쿼리 작성
+2. 레이아웃 조정 (flex-direction 변경 등)
+3. 폰트 크기 조정
+4. 메뉴 표시 방식 변경 (필요시 햄버거 메뉴 고려)
+*/

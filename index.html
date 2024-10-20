@@ -1,0 +1,189 @@
+<!-- 24.10.19
+  1.헤더 호버시 서브메뉴 호버 자연스럽게 구현하기  > ai 통해 어느정도 구현.... 만족하자
+ 2.로고 마진 문제 해결하기 > 완료
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+    1. 문서의 인코딩 설정 (UTF-8 권장)
+    2. 뷰포트 설정 (반응형 웹 디자인을 위해)
+    3. 페이지 제목 설정
+    4. CSS 파일 연결
+    5. JavaScript 파일 연결 (defer 속성 사용 고려)
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <!-- 전체 레이아웃을 감싸는 컨테이너 div 생성 -->
+    <div id="layout">
+      <!-- 
+        헤더 섹션:
+        1. 로고 이미지 (링크로 감싸기)
+        2. 네비게이션 메뉴 (ul, li 구조 사용)
+            - 메인 메뉴와 서브 메뉴 구조 고려
+            - 각 메뉴 항목에 적절한 클래스 부여
+        -->
+      <header>
+        <!-- 로고 및 네비게이션 메뉴 구현 -->
+        <div class="logo">
+          <img src="images/logo.jpg" alt="" />
+        </div>
+        <ul>
+          <li>
+            <a href="#" class="main_menu">FOODCOURT / DELI / HEALTH </a>
+            <nav>
+              <a href="#" class="sub_menu">감촌순두부</a>
+              <a href="#" class="sub_menu">땀땀</a>
+              <a href="#" class="sub_menu">랍스타바</a>
+              <a href="#" class="sub_menu">만두공방</a>
+            </nav>
+          </li>
+          <li>
+            <a href="#" class="main_menu">DELI & DESSERT</a>
+            <nav>
+              <a href="#" class="sub_menu">비파티세리</a>
+            </nav>
+          </li>
+          <li>
+            <a href="#" class="main_menu">CUSTOMER SERVICE</a>
+            <nav>
+              <a href="#" class="sub_menu">식품관 안내데스크</a>
+              <a href="#" class="sub_menu">커스텀</a>
+            </nav>
+          </li>
+        </ul>
+      </header>
+
+      <!-- 
+        슬라이드 영역:
+        1. 슬라이드 이미지들을 감싸는 컨테이너
+        2. 각 슬라이드 이미지에 대한 img 태그 사용
+        -->
+      <div id="slideArea">
+        <div class="slideTrack">
+          <!-- 슬라이드 이미지 구현 -->
+          <img src="images/visual1.jpg" alt="" class="active" />
+          <img src="images/visual2.jpg" alt="" />
+          <img src="images/visual3.jpg" alt="" />
+        </div>
+      </div>
+
+      <!-- 
+        메인 콘텐츠 영역:
+        1. 공지사항 섹션
+            - 제목 (h3 태그 사용)
+            - 공지사항 목록 (ol 태그 사용)
+            - 각 항목은 링크와 날짜로 구성
+        2. 갤러리 섹션
+            - 제목 (h3 태그 사용)
+            - 이미지 컨테이너 (div 사용)
+        3. 배너 섹션
+            - 제목 (h3 태그 사용, 필요시 숨김 처리)
+            - 배너 이미지
+        -->
+      <main>
+        <!-- 공지사항, 갤러리, 배너 섹션 구현 -->
+        <section class="notice">
+          <h3>공지사항</h3>
+          <ol>
+            <li>
+              <a href="#"
+                ><span class="title">3월 새내기 혜택모아 '봄'</span
+                ><span class="date">2020.02.18</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="title">고메이494에서 드리는 신선한 선물</span
+                ><span class="date">2021.02.07</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="title">나른해질 땐 상큼함으로 일상 깨우기</span
+                ><span class="date">2020.01.20</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="title">발사믹 비니거로 특별한 드레싱 완성</span
+                ><span class="date">2020.01.02</span></a
+              >
+            </li>
+          </ol>
+        </section>
+        <section class="gallery">
+          <h3>갤러리</h3>
+          <div class="gallery_imgs">
+            <img src="images/gallery1.jpg" alt="" />
+            <img src="images/gallery2.jpg" alt="" />
+            <img src="images/gallery3.jpg" alt="" />
+          </div>
+        </section>
+        <section class="banner">
+          <div>
+            <img src="images/quick_banner.jpg" alt="" />
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-info">
+          <!-- 
+            푸터 영역:
+            1. 회사 정보 링크
+            2. 연락처 정보
+            3. 저작권 정보
+            4. 패밀리 사이트 선택 (select 태그 사용)
+            -->
+          <!-- 푸터 내용 구현 -->
+          <div class="company-info">
+            <a href="#">업체소개</a>
+            <a href="#">이용약관</a>
+            <a href="#">개인정보취급방침안내</a>
+            <a href="#">계열사안내</a>
+          </div>
+          <div class="company">
+            <p>
+              서울특별시 영등포구 63로 50 (여의도동) 한화갤러리아 10층
+              (주)한화갤러리아 | 사업자등록번호 : 219-81-00317 | Tel: 1588-0121
+              | E-mail: hanhwa@galleria.co.kr
+            </p>
+          </div>
+          <div class="copyright">
+            COPYRIGHT ⓒ HANWHA GALLERIA CO., LTD. ALL RIGHTS RESERVED.
+          </div>
+        </div>
+        <div class="footer-select">
+          <select name="familyOption" id="">
+            <option value="family">패밀리 사이트</option>
+            <option value="mall">갤러리아 몰</option>
+            <option value="departmentStore">갤러리아 백화점</option>
+            <option value="beautyShop">갤러리아 뷰티샵</option>
+          </select>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 
+    팝업 창:
+    1. 기본적으로 숨겨진 상태
+    2. 공지사항 클릭 시 표시
+    3. 닫기 버튼 포함
+    -->
+    <div id="popup">
+      <!-- 팝업 내용 구현 -->
+      <div class="popup-content">
+        <h3 class="popupText">공지사항</h3>
+        <img src="images/popup.jpg" alt="" />
+        <button class="popupClose">닫기</button>
+      </div>
+    </div>
+  </body>
+</html>
